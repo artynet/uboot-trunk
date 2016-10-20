@@ -33,6 +33,7 @@ SOBJS-$(CONFIG_INCA_IP)	+= incaip_wdt.o
 COBJS-$(CONFIG_INCA_IP)	+= asc_serial.o incaip_clock.o
 COBJS-$(CONFIG_PURPLE)	+= asc_serial.o
 COBJS-$(CONFIG_SOC_AU1X00) += au1x00_eth.o au1x00_serial.o au1x00_usb_ohci.o
+COBJS-$(CONFIG_AR71XX)	+= ar71xx_serial.o
 
 SRCS	:= $(START:.o=.S) $(SOBJS-y:.o=.S) $(COBJS-y:.o=.c)
 OBJS	:= $(addprefix $(obj),$(SOBJS-y) $(COBJS-y))

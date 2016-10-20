@@ -42,6 +42,7 @@ int cpu_eth_init(bd_t *bis);
 
 /* Driver initialization prototypes */
 int au1x00_enet_initialize(bd_t*);
+int ag71xx_register(bd_t * bis, char *phyname[], u16 phyid[], u16 phyfixed[]);
 int at91emac_register(bd_t *bis, unsigned long iobase);
 int bfin_EMAC_initialize(bd_t *bis);
 int cs8900_initialize(u8 dev_num, int base_addr);
@@ -174,5 +175,13 @@ struct mv88e61xx_config {
 
 int mv88e61xx_switch_initialize(struct mv88e61xx_config *swconfig);
 #endif /* CONFIG_MV88E61XX_SWITCH */
+
+#if defined(CONFIG_RTL8366_MII)
+#define RTL8366_DEVNAME         "rtl8366"
+#define RTL8366_WANPHY_ID       4
+#define RTL8366_LANPHY_ID       -1
+int rtl8366_mii_register(bd_t *bis);
+int rtl8366s_initialize(void);
+#endif
 
 #endif /* _NETDEV_H_ */
